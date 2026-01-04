@@ -1,0 +1,14 @@
+# Proteksi file sensitif kecuali register_admin.php
+<FilesMatch "^(config\.php|admin\.php|admins\.json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+# Proteksi folder .git, .env, dan file backup
+RedirectMatch 403 /\.git
+RedirectMatch 403 /\.env
+RedirectMatch 403 /backup
+# Proteksi file .json
+<FilesMatch "\.json$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
